@@ -1,5 +1,5 @@
 const nameElement = document.getElementById("animated-name");
-const nameText = "youssef ammar";
+const nameText = "Youssef Ammar";
 let index = 0;
 let forward = true;
 
