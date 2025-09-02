@@ -1,14 +1,110 @@
-// تأثير الكتابة للاسم
-const nameText = "youssef ammar";
-const nameElement = document.getElementById("animated-name");
-let index = 0;
-
-function typeName() {
-  if (index < nameText.length) {
-    nameElement.textContent += nameText.charAt(index);
-    index++;
-    setTimeout(typeName, 150);
-  }
+/* الخلفية المتحركة */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
-typeName();
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #000, #001f3f, #000);
+  animation: bgMove 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* الحاوية */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* بطاقة البورتفوليو */
+.profile-card {
+  background: rgba(0,0,0,0.8);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  box-shadow: 0 0 20px #00bfff;
+}
+
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00bfff;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 2em;
+  margin-bottom: 20px;
+  min-height: 2.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #00bfff;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #00bfff; }
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  color: #00bfff;
+}
+
+.value {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.value:hover {
+  color: #00ffff;
+}
+
+.calculator-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #00bfff;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.calculator-link:hover {
+  background: #00ffff;
+}
+
